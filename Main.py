@@ -9,22 +9,22 @@ def Init():
     ch_options = Options()
     ch_options.add_argument("--headless")
     global TargetTime
-    TargetTime = "2023-07-12 23:00:00.00000000"  # 设置抢购时间
+    TargetTime = "2023-07-14 12:00:00.00000000"  # 设置抢购时间
 
     global WebDriver
     # WebDriver = webdriver.Chrome(chrome_options=ch_options)         #使用headless游览器，速度更快
-    WebDriver = webdriver.Chrome()  # 使用可视化游览器
+    WebDriver = webdriver.Chrome() # 使用可视化游览器
     WebDriver.get("https://show.bilibili.com/platform/detail.html?id=73710&from=pc_ticketlist")  # 输入目标购买页面
 
     global Price, Session
-    Session = '1'  # 场次设置：修改引号内部的数字，数字对应第选项的序号，选项序号从左到右从1开始依次排列
-    Price = '1'  # 价格设置：设置方法与场次设置一样
+    Session = '2'  # 场次设置：修改引号内部的数字，数字对应第选项的序号，选项序号从左到右从1开始依次排列
+    Price = '3'  # 价格设置：设置方法与场次设置一样
 
-    time.sleep(1)
+    time.sleep(10)
     print("进入购票页面成功")
 
     WebDriver.find_element(By.CLASS_NAME, "nav-header-register").click()
-    time.sleep(1)
+    time.sleep(10)
 
     print("登录完成后关闭qrimg页面")
     WebDriver.save_screenshot('./QRcode.png')
